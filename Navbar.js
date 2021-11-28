@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiOutlineMenuAlt3 } from 'react-icons/hi';
+import { VscChromeClose } from 'react-icons/vsc';
 import Fade from 'react-reveal/Fade';
 
 const Navbar = () => {
@@ -15,7 +16,7 @@ const Navbar = () => {
     ];
 
     return (
-        <header className="shadow-lg">
+        <header className="z-50 shadow-lg">
 
             <div className="container lg:pb-0 text-lg font-semibold text-gray-800">
 
@@ -32,11 +33,16 @@ const Navbar = () => {
 
                     </Link>
 
+                    {/*========== dynamic icon ==========*/}
+
                     <button onClick={() => setMobileMenu(!mobileMenu)} className="lg:hidden p-2 border-2 border-green-500 focus:ring-4 ring-offset-1 ring-green-200 transition duration-500 rounded-lg">
 
-                        <HiOutlineMenuAlt3 className="text-2xl" />
+                        {
+                            mobileMenu ? <VscChromeClose className="text-2xl" /> : <HiOutlineMenuAlt3 className="text-2xl" />
+                        }
 
                     </button>
+
 
                     <div className="hidden lg:flex items-center gap-x-5">
 
